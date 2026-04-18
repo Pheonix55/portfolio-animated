@@ -1,0 +1,1065 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>The Neon Architect | Portfolio</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind -->
+  <link rel="stylesheet" href="src/output.css">
+  <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-dim": "#699cff",
+            "on-secondary-container": "#74a3ff",
+            "primary-fixed-dim": "#c2a4ff",
+            "on-tertiary-fixed": "#003640",
+            background: "#070d1f",
+            "secondary-container": "#002455",
+            "surface-container-lowest": "#000000",
+            "surface-container-high": "#131e3c",
+            "primary-container": "#8342f4",
+            outline: "#68749b",
+            "error-dim": "#c8475d",
+            "on-secondary": "#003d88",
+            "on-primary": "#2b0065",
+            "tertiary-container": "#53ddfc",
+            "surface-container-highest": "#182446",
+            "secondary-fixed": "#d8e2ff",
+            "on-tertiary-fixed-variant": "#005564",
+            "on-tertiary-container": "#004b58",
+            "surface-dim": "#070d1f",
+            "surface-bright": "#1c2a51",
+            "tertiary-fixed": "#53ddfc",
+            "inverse-on-surface": "#4f5469",
+            tertiary: "#8ce7ff",
+            "surface-container-low": "#0b1228",
+            "on-error-container": "#ff97a3",
+            "on-error": "#490013",
+            secondary: "#adc6ff",
+            "inverse-primary": "#742fe5",
+            "on-secondary-fixed": "#003c86",
+            "on-secondary-fixed-variant": "#0057bd",
+            "tertiary-dim": "#40ceed",
+            "primary-dim": "#8a4cfc",
+            "on-surface-variant": "#9eaad3",
+            error: "#fd6f85",
+            "on-primary-fixed": "#340078",
+            "inverse-surface": "#faf8ff",
+            "error-container": "#8a1632",
+            "surface-container": "#0f1832",
+            "secondary-fixed-dim": "#c3d4ff",
+            "surface-variant": "#182446",
+            "primary-fixed": "#ceb5ff",
+            "on-primary-fixed-variant": "#5800c2",
+            "on-background": "#dfe4ff",
+            surface: "#070d1f",
+            "tertiary-fixed-dim": "#40ceed",
+            "outline-variant": "#3b476b",
+            "on-tertiary": "#005464",
+            "on-surface": "#dfe4ff",
+            "surface-tint": "#af88ff",
+            primary: "#af88ff",
+            "on-primary-container": "#ffffff",
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+          fontFamily: {
+            headline: ["Manrope"],
+            body: ["Inter"],
+            label: ["Inter"],
+          },
+        },
+      },
+    };
+  </script> -->
+  <style>
+    html {
+      scroll-behavior: auto;
+      /* disable default */
+    }
+
+    body {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+
+    .hero_section,
+    .tech_stack_section,
+    .projects_section,
+    .contact_me_section {
+      scroll-snap-align: start;
+      min-height: 100vh;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings:
+        "FILL" 0,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
+    }
+
+    body {
+      background-color: #070d1f;
+      color: #dfe4ff;
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .glow-bg {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle,
+          rgba(175, 136, 255, 0.15) 0%,
+          rgba(131, 66, 244, 0) 70%);
+      filter: blur(60px);
+      z-index: -1;
+    }
+
+    #cursor-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 300px;
+      pointer-events: none;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+          rgba(175, 136, 255, 0.25) 0%,
+          rgba(175, 136, 255, 0.1) 40%,
+          transparent 70%);
+      filter: blur(40px);
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+  </style>
+</head>
+
+<body class="bg-surface selection:bg-primary-container selection:text-on-primary-container">
+  <div id="cursor-glow"></div>
+  <!-- TopNavBar Component -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-950/60 backdrop-blur-xl shadow-[0_16px_64px_rgba(175,136,255,0.08)]">
+    <div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-6">
+      <div class="text-2xl font-black text-[#af88ff] tracking-tighter">
+        The Neon Architect
+      </div>
+      <div class="hidden md:flex items-center gap-10">
+        <a class="font-manrope tracking-tighter uppercase font-bold text-[#af88ff] border-b-2 border-[#af88ff] pb-1"
+          href="#projects_section" data-scroll="projects_section">Work</a>
+        <a class="font-manrope tracking-tighter uppercase font-bold text-slate-400 hover:text-slate-100 transition-colors"
+          href="#tech_stack_section" data-scroll="tech_stack_section">Tech</a>
+        <a class="font-manrope tracking-tighter uppercase font-bold text-slate-400 hover:text-slate-100 transition-colors"
+          href="#">Story</a>
+        <a class="font-manrope tracking-tighter uppercase font-bold text-slate-400 hover:text-slate-100 transition-colors"
+          href="#contact_me_section" data-scroll="contact_me_section">Connect</a>
+      </div>
+      <div class="flex items-center gap-4 hero-buttons">
+        <button
+          class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-manrope font-bold px-6 py-2.5 rounded-xl hover:scale-95 transition-transform">
+          <a href="assets/Muhammad_Ali_Laravel_dev_CV.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <main class="relative pt-32">
+    <div class="hero_section" id="hero_section">
+      <!-- Ambient Decorative Glows -->
+      <div class="glow-bg top-[-100px] left-[-100px]"></div>
+      <div class="glow-bg bottom-0 right-[-200px]" style="
+          background: radial-gradient(
+            circle,
+            rgba(140, 231, 255, 0.1) 0%,
+            rgba(0, 0, 0, 0) 70%
+          );
+        "></div>
+      <!-- Hero Section -->
+      <section class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[819px]">
+        <div class="lg:col-span-7 space-y-8">
+          <div class="inline-block ">>
+            <span
+              class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
+              Available for projects
+            </span>
+          </div>
+          <h1
+            class="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter text-on-surface leading-[0.9] hero-title">
+            Crafting Modern Digital
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">Experiences</span>
+            with Laravel &amp; Soul
+          </h1>
+          <p class="font-body text-xl text-on-surface-variant max-w-xl leading-relaxed ">
+            Full-stack artisan bridging the gap between high-performance backend
+            logic and breathtaking frontend interfaces. Architecting the next
+            generation of web applications.
+          </p>
+          <div class="flex flex-wrap gap-6 pt-4 hero-buttons">
+            <button
+              class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-headline font-bold text-lg px-10 py-5 rounded-xl shadow-[0_16px_32px_rgba(175,136,255,0.2)] hover:translate-y-[-2px] transition-all">
+              <a href="/projects.html">See My Work</a>
+            </button>
+            <button
+              class="flex items-center gap-3 text-primary font-headline font-bold text-lg px-10 py-5 border border-outline-variant/30 rounded-xl hover:bg-surface-bright transition-colors">
+              <a href="/tech_stack.html">View Stack</a>
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+          <!-- Logic Chips / Tech Indicators -->
+          <div class="pt-12 flex flex-wrap gap-3">
+            <div
+              class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-secondary"></span> Laravel 13
+            </div>
+            <div
+              class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-secondary"></span> Vue 3 /
+              Inertia
+            </div>
+            <div
+              class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-secondary"></span> Vue 3 /
+              React (SPA)
+            </div>
+            <div
+              class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-secondary"></span> Livewire / Reverb
+            </div>
+            <div
+              class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-secondary"></span> PostgreSQL
+            </div>
+            <div
+              class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-secondary"></span> Mysql
+            </div>
+            <div
+              class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-secondary"></span> Redis
+            </div>
+          </div>
+        </div>
+        <!-- Hero Image Column -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative w-full aspect-square flex items-center justify-center">
+            <!-- Subtle ring detail -->
+            <div class="absolute inset-0 border-[40px] border-surface-container-high/20 rounded-full animate-pulse">
+            </div>
+            <div class="absolute inset-20 border-[1px] border-primary/20 rounded-full"></div>
+            <img alt="3D character illustration"
+              class="relative z-10 w-full h-auto drop-shadow-[0_32px_64px_rgba(0,0,0,0.5)]"
+              data-alt="A high-quality 3D render of a fictional teenage character in a professional charcoal suit with a neon purple tie, representing a young tech prodigy."
+              src="assets/hero.png" />
+            <!-- Floating Tech Cards -->
+            <div
+              class="absolute top-10 right-0 bg-surface-container-highest/80 backdrop-blur-md p-4 rounded-xl border border-outline-variant/20 shadow-2xl z-20">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-sm">terminal</span>
+                </div>
+                <span class="text-xs font-mono text-primary-fixed-dim">npm run dev</span>
+              </div>
+            </div>
+            <div
+              class="absolute bottom-10 left-0 bg-surface-container-highest/80 backdrop-blur-md p-4 rounded-xl border border-outline-variant/20 shadow-2xl z-20">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-tertiary/20 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-tertiary text-sm">database</span>
+                </div>
+                <span class="text-xs font-mono text-tertiary-fixed-dim">Migration ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Stats Section (Asymmetric Depth) -->
+      <section class="max-w-7xl mx-auto px-8 mt-32 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-surface-container-low p-8 rounded-2xl hover:bg-surface-container-high transition-colors">
+          <div class="text-4xl font-headline font-black text-on-surface tracking-tighter">
+            04+
+          </div>
+          <div class="text-sm font-label text-on-surface-variant uppercase tracking-widest mt-2">
+            Years of Depth
+          </div>
+        </div>
+        <div class="bg-surface-container-low p-8 rounded-2xl hover:bg-surface-container-high transition-colors mt-8">
+          <div class="text-4xl font-headline font-black text-on-surface tracking-tighter">
+            24
+          </div>
+          <div class="text-sm font-label text-on-surface-variant uppercase tracking-widest mt-2">
+            Shipped Apps
+          </div>
+        </div>
+        <div class="bg-surface-container-low p-8 rounded-2xl hover:bg-surface-container-high transition-colors">
+          <div class="text-4xl font-headline font-black text-on-surface tracking-tighter">
+            100%
+          </div>
+          <div class="text-sm font-label text-on-surface-variant uppercase tracking-widest mt-2">
+            Clean Code
+          </div>
+        </div>
+        <div class="bg-surface-container-low p-8 rounded-2xl hover:bg-surface-container-high transition-colors mt-8">
+          <div class="text-4xl font-headline font-black text-on-surface tracking-tighter">
+            2.4k
+          </div>
+          <div class="text-sm font-label text-on-surface-variant uppercase tracking-widest mt-2">
+            Github Stars
+          </div>
+        </div>
+      </section>
+      <!-- Feature Bento Grid (Tonal Silhouettes) -->
+      <section class="max-w-7xl mx-auto px-8 mt-48">
+        <div class="mb-16">
+          <span class="text-primary font-bold uppercase tracking-widest text-xs">Capabilities</span>
+          <h2 class="text-4xl md:text-5xl font-headline font-extrabold mt-4 tracking-tighter">
+            Forged in PHP, <br />Perfected in Design
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div class="md:col-span-8 bg-surface-container-low rounded-[2rem] p-12 overflow-hidden relative group">
+            <div class="relative z-10">
+              <span class="material-symbols-outlined text-primary text-4xl mb-6">layers</span>
+              <h3 class="text-3xl font-headline font-bold mb-4">
+                Scalable Architectures
+              </h3>
+              <p class="text-on-surface-variant max-w-md">
+                I design backend systems that grow with your user base,
+                utilizing Laravel's robust ecosystem from Horizon to Scout.
+              </p>
+            </div>
+            <div
+              class="absolute bottom-[-50px] right-[-50px] w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all">
+            </div>
+          </div>
+          <div class="md:col-span-4 bg-surface-bright rounded-[2rem] p-12 flex flex-col justify-between">
+            <span class="material-symbols-outlined text-tertiary text-4xl">speed</span>
+            <div>
+              <h3 class="text-2xl font-headline font-bold mb-2">
+                High Performance
+              </h3>
+              <p class="text-sm text-on-surface-variant">
+                Sub-100ms response times and optimized asset delivery.
+              </p>
+            </div>
+          </div>
+          <div class="md:col-span-4 bg-surface-container-highest rounded-[2rem] p-12 flex flex-col justify-between">
+            <span class="material-symbols-outlined text-secondary text-4xl">brush</span>
+            <div>
+              <h3 class="text-2xl font-headline font-bold mb-2">
+                Modern UI/UX
+              </h3>
+              <p class="text-sm text-on-surface-variant">
+                Bespoke interfaces crafted with Tailwind CSS and deep precision.
+              </p>
+            </div>
+          </div>
+          <div class="md:col-span-8 bg-surface-container-low rounded-[2rem] p-12 flex items-center gap-12 group">
+            <div class="flex-1">
+              <span class="material-symbols-outlined text-primary text-4xl mb-6">security</span>
+              <h3 class="text-3xl font-headline font-bold mb-4">
+                Security First
+              </h3>
+              <p class="text-on-surface-variant">
+                Hardened endpoints, deep authentication logic, and data
+                integrity.
+              </p>
+            </div>
+            <div
+              class="hidden lg:block w-1/3 aspect-video bg-surface-container-high rounded-xl overflow-hidden shadow-inner p-4 border border-outline-variant/10">
+              <div class="space-y-2 opacity-50">
+                <div class="h-2 w-full bg-primary/20 rounded"></div>
+                <div class="h-2 w-3/4 bg-primary/20 rounded"></div>
+                <div class="h-2 w-1/2 bg-primary/20 rounded"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="tech_stack_section relative pt-32 pb-16 px-8 max-w-7xl mx-auto overflow-hidden" id="tech_stack_section">
+      <!-- Ambient Decorative Glows -->
+      <div class="absolute top-[10%] -left-[10%] w-[40rem] h-[40rem] bg-primary/10 rounded-full blur-[120px] -z-10">
+      </div>
+      <div class="absolute bottom-[20%] -right-[10%] w-[30rem] h-[30rem] bg-tertiary/5 rounded-full blur-[100px] -z-10">
+      </div>
+      <!-- Hero Section Header -->
+      <header class="mb-24">
+        <span class="text-primary font-label text-sm font-bold tracking-[0.2em] uppercase mb-4 block">Engineered for
+          Performance</span>
+        <h1
+          class="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter leading-none mb-8 text-on-surface">
+          The Tech Behind <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">the
+            Talent</span>
+        </h1>
+      </header>
+      <!-- Two-Column Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <!-- Bio Column -->
+        <div class="lg:col-span-5 space-y-8">
+          <div class="p-8 rounded-2xl bg-surface-container-low relative border border-outline-variant/10">
+            <p class="text-xl leading-relaxed text-on-surface-variant font-body">
+              As a <span class="text-primary font-bold">Full-Stack Architect</span> specializing in the
+              Laravel ecosystem, I bridge the gap between complex backend logic and high-fidelity user
+              experiences.
+            </p>
+            <p class="mt-6 text-on-surface-variant leading-relaxed">
+              I build digital products that are as performant as they are beautiful. My process involves
+              treating code like architecture—structured, scalable, and built to last. I don't just ship
+              features; I craft digital ecosystems.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <div
+              class="flex items-center gap-3 px-5 py-3 rounded-full bg-secondary-container text-on-secondary-container border border-secondary/20">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terminal</span>
+              <span class="text-sm font-bold font-label">Backend First</span>
+            </div>
+            <div
+              class="flex items-center gap-3 px-5 py-3 rounded-full bg-surface-container-high text-tertiary border border-tertiary/20">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+              <span class="text-sm font-bold font-label">UI Artistry</span>
+            </div>
+          </div>
+          <div class="pt-8">
+            <h3 class="font-headline text-2xl font-bold mb-6 text-on-surface">Current Focus</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-4">
+                <div class="mt-1.5 w-2 h-2 rounded-full bg-primary shrink-0"></div>
+                <div>
+                  <span class="block font-bold text-on-surface">Scalable Laravel Architectures</span>
+                  <span class="text-sm text-on-surface-variant">Building robust APIs and service-oriented
+                    systems.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="mt-1.5 w-2 h-2 rounded-full bg-tertiary shrink-0"></div>
+                <div>
+                  <span class="block font-bold text-on-surface">Atomic Design Systems</span>
+                  <span class="text-sm text-on-surface-variant">Crafting reusable component libraries with
+                    Tailwind.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Tech Stack Visual Column -->
+        <div class="lg:col-span-7 relative">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+            <!-- Tech Card: Laravel -->
+            <div
+              class="group aspect-square rounded-2xl bg-surface-container-low p-6 flex flex-col justify-between items-center transition-all duration-500 hover:bg-surface-container-high hover:-translate-y-2 relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-error/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              </div>
+              <span class="material-symbols-outlined text-5xl text-error-dim"
+                style="font-variation-settings: 'FILL' 1;">developer_board</span>
+              <div class="text-center">
+                <span class="block font-bold text-lg font-headline">Laravel</span>
+                <span class="text-xs uppercase tracking-widest text-on-surface-variant">Mastery</span>
+              </div>
+            </div>
+            <!-- Tech Card: PHP -->
+            <div
+              class="group aspect-square rounded-2xl bg-surface-container-low p-6 flex flex-col justify-between items-center transition-all duration-500 hover:bg-surface-container-high hover:-translate-y-2 relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              </div>
+              <span class="material-symbols-outlined text-5xl text-secondary-dim"
+                style="font-variation-settings: 'FILL' 1;">database</span>
+              <div class="text-center">
+                <span class="block font-bold text-lg font-headline">PHP 8.x</span>
+                <span class="text-xs uppercase tracking-widest text-on-surface-variant">Core Logic</span>
+              </div>
+            </div>
+            <!-- Tech Card: JS -->
+            <div
+              class="group aspect-square rounded-2xl bg-surface-container-low p-6 flex flex-col justify-between items-center transition-all duration-500 hover:bg-surface-container-high hover:-translate-y-2 relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              </div>
+              <span class="material-symbols-outlined text-5xl text-tertiary"
+                style="font-variation-settings: 'FILL' 1;">javascript</span>
+              <div class="text-center">
+                <span class="block font-bold text-lg font-headline">Modern JS</span>
+                <span class="text-xs uppercase tracking-widest text-on-surface-variant">Interactivity</span>
+              </div>
+            </div>
+            <!-- Tech Card: Tailwind -->
+            <div
+              class="group aspect-square rounded-2xl bg-surface-container-low p-6 flex flex-col justify-between items-center transition-all duration-500 hover:bg-surface-container-high hover:-translate-y-2 relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              </div>
+              <span class="material-symbols-outlined text-5xl text-primary"
+                style="font-variation-settings: 'FILL' 1;">grid_view</span>
+              <div class="text-center">
+                <span class="block font-bold text-lg font-headline">Tailwind</span>
+                <span class="text-xs uppercase tracking-widest text-on-surface-variant">Styling</span>
+              </div>
+            </div>
+            <!-- Tech Card: Vue/React -->
+            <div
+              class="group aspect-square rounded-2xl bg-surface-container-low p-6 flex flex-col justify-between items-center transition-all duration-500 hover:bg-surface-container-high hover:-translate-y-2 relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-on-tertiary-fixed/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              </div>
+              <span class="material-symbols-outlined text-5xl text-tertiary-dim"
+                style="font-variation-settings: 'FILL' 1;">layers</span>
+              <div class="text-center">
+                <span class="block font-bold text-lg font-headline">Inertia.js</span>
+                <span class="text-xs uppercase tracking-widest text-on-surface-variant">Full Stack</span>
+              </div>
+            </div>
+            <!-- Tech Card: MySQL -->
+            <div
+              class="group aspect-square rounded-2xl bg-surface-container-low p-6 flex flex-col justify-between items-center transition-all duration-500 hover:bg-surface-container-high hover:-translate-y-2 relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-on-secondary-fixed/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              </div>
+              <span class="material-symbols-outlined text-5xl text-secondary"
+                style="font-variation-settings: 'FILL' 1;">storage</span>
+              <div class="text-center">
+                <span class="block font-bold text-lg font-headline">MySQL</span>
+                <span class="text-xs uppercase tracking-widest text-on-surface-variant">Persistence</span>
+              </div>
+            </div>
+          </div>
+          <!-- Floating Interactive Elements -->
+          <div class="hidden xl:block absolute -right-16 top-1/2 -translate-y-1/2">
+            <div class="glass-panel p-6 rounded-2xl shadow-2xl space-y-6 border border-white/5">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-xl">speed</span>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Perf
+                    Score</div>
+                  <div class="text-xl font-headline font-black text-on-surface">99.8%</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-tertiary text-xl">shield</span>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">
+                    Security</div>
+                  <div class="text-xl font-headline font-black text-on-surface">SOC-2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Skill Spectrum -->
+      <section class="mt-32">
+        <h2 class="font-headline text-3xl font-bold mb-12 text-center text-on-surface">The Spectrum of Competency
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Logic -->
+          <div
+            class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/10 group transition-all duration-300 hover:border-primary/30">
+            <div
+              class="text-primary font-black text-4xl font-headline mb-4 opacity-20 group-hover:opacity-100 transition-opacity">
+              01.</div>
+            <h3 class="text-xl font-bold font-headline mb-4">Core Logic</h3>
+            <p class="text-on-surface-variant text-sm mb-6">Deep understanding of Design Patterns, SOLID
+              principles, and Test Driven Development (TDD).</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 rounded-full bg-secondary-container text-[10px] font-bold text-on-secondary-container uppercase">PHPUnit</span>
+              <span
+                class="px-3 py-1 rounded-full bg-secondary-container text-[10px] font-bold text-on-secondary-container uppercase">Design
+                Patterns</span>
+            </div>
+          </div>
+          <!-- Interface -->
+          <div
+            class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/10 group transition-all duration-300 hover:border-tertiary/30">
+            <div
+              class="text-tertiary font-black text-4xl font-headline mb-4 opacity-20 group-hover:opacity-100 transition-opacity">
+              02.</div>
+            <h3 class="text-xl font-bold font-headline mb-4">Responsive Flow</h3>
+            <p class="text-on-surface-variant text-sm mb-6">Expertise in creating fluid, high-performance
+              animations and reactive user interfaces.</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 rounded-full bg-secondary-container text-[10px] font-bold text-on-secondary-container uppercase">Framermotion</span>
+              <span
+                class="px-3 py-1 rounded-full bg-secondary-container text-[10px] font-bold text-on-secondary-container uppercase">GSAP</span>
+            </div>
+          </div>
+          <!-- DevOps -->
+          <div
+            class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/10 group transition-all duration-300 hover:border-secondary/30">
+            <div
+              class="text-secondary font-black text-4xl font-headline mb-4 opacity-20 group-hover:opacity-100 transition-opacity">
+              03.</div>
+            <h3 class="text-xl font-bold font-headline mb-4">Cloud Native</h3>
+            <p class="text-on-surface-variant text-sm mb-6">Deploying with CI/CD pipelines, Dockerized
+              environments, and cloud infrastructure management.</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 rounded-full bg-secondary-container text-[10px] font-bold text-on-secondary-container uppercase">Docker</span>
+              <span
+                class="px-3 py-1 rounded-full bg-secondary-container text-[10px] font-bold text-on-secondary-container uppercase">AWS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="projects_section relative pt-48 pb-20 overflow-hidden" id="projects_section">
+      <!-- Atmospheric Depth Background Blobs -->
+      <div class="absolute top-0 -left-20 w-96 h-96 bg-primary/10 rounded-full glow-blob -z-10"></div>
+      <div class="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-tertiary/5 rounded-full glow-blob -z-10"></div>
+      <section class="max-w-7xl mx-auto px-8">
+        <!-- Title Section -->
+        <div class="mb-16">
+          <span class="text-primary font-label text-sm font-bold tracking-[0.2em] uppercase mb-4 block">Portfolio</span>
+          <h1
+            class="text-6xl md:text-7xl font-headline font-extrabold tracking-[-0.04em] text-on-surface leading-tight">
+            Selected <span
+              class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary-container">Works</span>.
+          </h1>
+          <p class="mt-6 text-on-surface-variant text-xl max-w-2xl font-body leading-relaxed">
+            Architecting high-performance backend ecosystems with Laravel, wrapped in pixel-perfect frontend
+            experiences.
+          </p>
+        </div>
+        <!-- Filters Section -->
+        <div class="mb-12 flex flex-wrap items-center gap-3 hero-buttons">
+          <button
+            class="bg-primary text-on-primary px-6 py-2 rounded-full text-sm font-bold tracking-tight transition-all">All
+            Projects</button>
+          <button
+            class="bg-surface-container-highest text-on-surface-variant hover:text-on-surface px-6 py-2 rounded-full text-sm font-bold tracking-tight transition-all border border-white/5">Full
+            Stack</button>
+          <button
+            class="bg-surface-container-highest text-on-surface-variant hover:text-on-surface px-6 py-2 rounded-full text-sm font-bold tracking-tight transition-all border border-white/5">Backend</button>
+          <button
+            class="bg-surface-container-highest text-on-surface-variant hover:text-on-surface px-6 py-2 rounded-full text-sm font-bold tracking-tight transition-all border border-white/5">API
+            Systems</button>
+          <button
+            class="bg-surface-container-highest text-on-surface-variant hover:text-on-surface px-6 py-2 rounded-full text-sm font-bold tracking-tight transition-all border border-white/5">UI/UX</button>
+        </div>
+        <!-- Denser Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="group project-card bg-surface-container-low border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col">
+            <div class="relative aspect-video overflow-hidden">
+              <img alt="Project Thumbnail"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBckfEQVfl_Fx2I9sDwnVZ5cvUpjJTB8mDVLU5KYxwHg8-O1uDb-xapnINlx03G2hiyv8cCnc87sNB4OPCgy8bUdkCwu06TebYtORB452nPedxllVF6pUSvruzSX6Ql9RKMB5BWeu_cmEQ6nac2REv4dqlqVTS59l3f54x-fv-zT030hC254z-03MxFXHpEymQZfsfs6B4MoQBlFwCOjkyKa_9zEPXq7EWpNtwHcm9yUzbFvkmH56mRMCwUP0PmxmEY87mrstxmclQ" />
+              <div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">Laravel</span>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">Livewire</span>
+              </div>
+              <h3 class="text-xl font-headline font-bold mb-2 group-hover:text-primary transition-colors">Quantum CRM
+                Core</h3>
+              <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6 flex-grow line-clamp-3">
+                An enterprise relationship management system built on modular architecture, handling millions of
+                transactions.
+              </p>
+              <a class="mt-auto inline-flex items-center gap-2 text-primary text-sm font-bold group-hover:gap-4 transition-all"
+                href="#">
+                View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div
+            class="group project-card bg-surface-container-low border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col">
+            <div class="relative aspect-video overflow-hidden">
+              <img alt="Project Thumbnail"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx1qcGZluhQbm7Dlj7wqCsa1B64X8WbWEhqZtemfhUtuoBO-9nVKZcPqYzizgOjZwiVlrcWsu_VbI_hUKC9Et10cwjriCbFqS6i9xdxgQrmrvTOkIFzB_9eHgHDcgpMusuL6QEdZms3bFozzadQ1Tv_hJgp6KlzUZkycpdNrenm9QTMaGlj1RePumG-2jlWidX9lUY1r44Z4L5lJy_xDtd9AU-Np4qnajlp7THeV3SxSRdGW89buu1sOc4mQu3gN00BBSeEwsBIoQ" />
+              <div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">Redis</span>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">Vue.js</span>
+              </div>
+              <h3 class="text-xl font-headline font-bold mb-2 group-hover:text-primary transition-colors">Synapse Stream
+              </h3>
+              <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6 flex-grow line-clamp-3">
+                Real-time analytics engine for instant data propagation across distributed nodes with sub-second
+                latency.
+              </p>
+              <a class="mt-auto inline-flex items-center gap-2 text-primary text-sm font-bold group-hover:gap-4 transition-all"
+                href="#">
+                View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div
+            class="group project-card bg-surface-container-low border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col">
+            <div class="relative aspect-video overflow-hidden">
+              <img alt="Project Thumbnail"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKr5WlV9IowtJWn1r6alKlOL0ACcbKvCl_LEsMiAqVGIrrIb6PXuseJsvhKWcUsNRxNqxXrKmSnBv_nAAjEz23_iS6ZsZPPQClX3g1riAYJpY7yObba64pHrYYWitStQ1fciFpg3OF8KVFyAThdt-lLQ2-zWCmIywpr0ETDqjQp__cUqNNmXTY2ErOn1sBeeAaCYfjIvh815bd9eJ2DgcuroVd1yG5tCeomECnU6j-mUDR_ZcdqpPaSMZOg4vu6UMetL1178W4_DE" />
+              <div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">Stripe</span>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">PHP
+                  8.3</span>
+              </div>
+              <h3 class="text-xl font-headline font-bold mb-2 group-hover:text-primary transition-colors">Lumina Ledger
+              </h3>
+              <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6 flex-grow line-clamp-3">
+                High-security payment gateway integration for global SaaS platforms featuring automated tax compliance.
+              </p>
+              <a class="mt-auto inline-flex items-center gap-2 text-primary text-sm font-bold group-hover:gap-4 transition-all"
+                href="#">
+                View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <!-- Project 4 -->
+          <div
+            class="group project-card bg-surface-container-low border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col">
+            <div class="relative aspect-video overflow-hidden">
+              <img alt="Project Thumbnail"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-abznhjuR2DhYDbs4C7tdHG0D0NQ-6Nh1rj9COzJKdtqJ8qBGnsAe1LLbxDkRSv8kdbghha6EDZHI8g-HsiBT0aiNySstHsef2VXYwM4OAHmd_Tw0JzU_byNAMNxw0aSmtbaeHtQElPQ_zO5duHNcxgnxubHlYA4EcjFKqSsc4QiPeGTBuLGFPmb4IW88ytfXAxIAIgPJ0y0JXhCX95Y-c410Op7L89usS83BTliW9LV22C8FMCjwOJR0JAppWBlDPVtCNZeu3Ng" />
+              <div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">Elasticsearch</span>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">AWS</span>
+              </div>
+              <h3 class="text-xl font-headline font-bold mb-2 group-hover:text-primary transition-colors">Vortex
+                Marketplace</h3>
+              <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6 flex-grow line-clamp-3">
+                A headless e-commerce solution using Laravel as a robust API orchestrator for catalog filtering.
+              </p>
+              <a class="mt-auto inline-flex items-center gap-2 text-primary text-sm font-bold group-hover:gap-4 transition-all"
+                href="#">
+                View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <!-- Project 5 (Placeholder for density) -->
+          <div
+            class="group project-card bg-surface-container-low border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col">
+            <div
+              class="relative aspect-video overflow-hidden bg-surface-container-high flex items-center justify-center">
+              <span class="material-symbols-outlined text-4xl text-outline-variant">analytics</span>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">Inertia</span>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">Tailwind</span>
+              </div>
+              <h3 class="text-xl font-headline font-bold mb-2 group-hover:text-primary transition-colors">Nova Dashboard
+              </h3>
+              <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6 flex-grow line-clamp-3">
+                SaaS metrics visualizer with custom reactive components and dynamic data hydration.
+              </p>
+              <a class="mt-auto inline-flex items-center gap-2 text-primary text-sm font-bold group-hover:gap-4 transition-all"
+                href="#">
+                View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <!-- Project 6 (Placeholder for density) -->
+          <div
+            class="group project-card bg-surface-container-low border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col">
+            <div
+              class="relative aspect-video overflow-hidden bg-surface-container-high flex items-center justify-center">
+              <span class="material-symbols-outlined text-4xl text-outline-variant">terminal</span>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">PHP</span>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider bg-secondary-container/50 text-secondary px-2.5 py-1 rounded">MySQL</span>
+              </div>
+              <h3 class="text-xl font-headline font-bold mb-2 group-hover:text-primary transition-colors">Echo Pipe API
+              </h3>
+              <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6 flex-grow line-clamp-3">
+                Low-latency microservice for cross-platform data synchronization and webhook management.
+              </p>
+              <a class="mt-auto inline-flex items-center gap-2 text-primary text-sm font-bold group-hover:gap-4 transition-all"
+                href="#">
+                View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Project CTA -->
+      <section class="mt-32 max-w-7xl mx-auto px-8">
+        <div
+          class="p-16 rounded-[2rem] bg-surface-container-low border border-white/5 relative overflow-hidden text-center">
+          <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/20 rounded-full glow-blob"></div>
+          <h2 class="text-5xl font-headline font-extrabold tracking-tight mb-8">Have a project in mind?</h2>
+          <button
+            class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-12 py-5 rounded-full font-headline font-extrabold text-lg shadow-2xl hover:scale-105 transition-transform active:scale-95">
+            Let's Start Building
+          </button>
+        </div>
+      </section>
+    </div>
+    <div class="contact_me_section relative pt-32 min-h-screen overflow-hidden" id="contact_me_section">
+      <!-- Atmospheric Ambient Glows -->
+      <div
+        class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none">
+      </div>
+      <div
+        class="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-tertiary/5 rounded-full blur-[100px] pointer-events-none">
+      </div>
+      <section class="max-w-7xl mx-auto px-8 py-20 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-20 items-start">
+          <!-- Left Column: Content -->
+          <div class="space-y-12">
+            <div class="space-y-4">
+              <span class="text-primary font-label text-sm font-bold tracking-[0.2em] uppercase">Get In Touch</span>
+              <h1
+                class="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter text-on-surface leading-[0.9]">
+                Let's Build Something New
+              </h1>
+            </div>
+            <p class="text-on-surface-variant text-lg max-w-md font-body leading-relaxed">
+              Currently seeking collaborations on Laravel-based systems, high-performance UI components, and
+              architectural logic puzzles.
+            </p>
+            <!-- Social Media Links (3D Styled) -->
+            <div class="flex gap-6">
+              <a class="group relative flex items-center justify-center w-16 h-16 rounded-2xl bg-surface-container-high hover:bg-surface-bright transition-all duration-500 shadow-xl hover:-translate-y-2"
+                href="#">
+                <div
+                  class="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary transition-colors">
+                </div>
+                <span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform"
+                  data-icon="link" style="font-variation-settings: 'FILL' 1;">link</span>
+                <span
+                  class="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold tracking-widest uppercase text-primary">LinkedIn</span>
+              </a>
+              <a class="group relative flex items-center justify-center w-16 h-16 rounded-2xl bg-surface-container-high hover:bg-surface-bright transition-all duration-500 shadow-xl hover:-translate-y-2"
+                href="#">
+                <div
+                  class="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary transition-colors">
+                </div>
+                <span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform"
+                  data-icon="terminal" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                <span
+                  class="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold tracking-widest uppercase text-primary">GitHub</span>
+              </a>
+              <a class="group relative flex items-center justify-center w-16 h-16 rounded-2xl bg-surface-container-high hover:bg-surface-bright transition-all duration-500 shadow-xl hover:-translate-y-2"
+                href="#">
+                <div
+                  class="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary transition-colors">
+                </div>
+                <span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform"
+                  data-icon="alternate_email" style="font-variation-settings: 'FILL' 1;">alternate_email</span>
+                <span
+                  class="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold tracking-widest uppercase text-primary">Layers</span>
+              </a>
+            </div>
+            <!-- Availability Badge -->
+            <div
+              class="inline-flex items-center gap-3 px-4 py-2 bg-secondary-container/30 rounded-full border border-secondary/20">
+              <span class="relative flex h-3 w-3">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-tertiary"></span>
+              </span>
+              <span class="text-sm font-medium text-secondary">Available for new projects Q4 2024</span>
+            </div>
+          </div>
+          <!-- Right Column: Glassmorphic Form -->
+          <div class="relative">
+            <!-- Subtle Glow behind card -->
+            <div class="absolute inset-0 bg-primary/20 blur-[64px] -z-10 transform scale-90"></div>
+            <div class="glass-card rounded-[2rem] p-8 md:p-12 border border-outline-variant/20 shadow-2xl">
+              <form class="space-y-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                  <div class="space-y-2">
+                    <label
+                      class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1 font-label">Your
+                      Name</label>
+                    <input
+                      class="w-full bg-surface-container-lowest border-none outline outline-1 outline-outline-variant/30 rounded-xl px-4 py-4 text-on-surface focus:outline-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-slate-600"
+                      placeholder="John Architect" type="text" />
+                  </div>
+                  <div class="space-y-2">
+                    <label
+                      class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1 font-label">Email
+                      Address</label>
+                    <input
+                      class="w-full bg-surface-container-lowest border-none outline outline-1 outline-outline-variant/30 rounded-xl px-4 py-4 text-on-surface focus:outline-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-slate-600"
+                      placeholder="john@neon.io" type="email" />
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <label
+                    class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1 font-label">Subject</label>
+                  <div class="relative">
+                    <select
+                      class="w-full bg-surface-container-lowest border-none outline outline-1 outline-outline-variant/30 rounded-xl px-4 py-4 text-on-surface focus:outline-primary focus:ring-4 focus:ring-primary/10 transition-all appearance-none cursor-pointer">
+                      <option>New Project Inquiry</option>
+                      <option>Speaking / Teaching</option>
+                      <option>Coffee &amp; Logic</option>
+                    </select>
+                    <span
+                      class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500"
+                      data-icon="expand_more">expand_more</span>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <label
+                    class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1 font-label">Message</label>
+                  <textarea
+                    class="w-full bg-surface-container-lowest border-none outline outline-1 outline-outline-variant/30 rounded-xl px-4 py-4 text-on-surface focus:outline-primary focus:ring-4 focus:ring-primary/10 transition-all placeholder:text-slate-600 resize-none"
+                    placeholder="Let's build the future..." rows="5"></textarea>
+                </div>
+                <button
+                  class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-container py-5 rounded-xl font-headline font-black text-lg tracking-tight shadow-lg hover:shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3"
+                  type="submit">
+                  Initialize Connection
+                  <span class="material-symbols-outlined" data-icon="send">send</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Dynamic Layering: Project Peek Section -->
+      <section class="max-w-7xl mx-auto px-8 mt-40">
+        <div class="flex items-end justify-between mb-16">
+          <div>
+            <span class="text-tertiary font-label text-sm font-bold tracking-[0.2em] uppercase">Visual Artifacts</span>
+            <h2 class="text-4xl font-headline font-bold text-on-surface mt-2 tracking-tight">Recent Deployments</h2>
+          </div>
+          <div class="h-[1px] flex-grow mx-12 bg-outline-variant/20 hidden md:block"></div>
+          <a class="text-primary hover:underline font-bold transition-all flex items-center gap-2" href="#">
+            View Portfolio <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-surface-container-low shadow-2xl transition-all duration-500 hover:-translate-y-4">
+            <img
+              class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700"
+              data-alt="Dark aesthetic code editor with neon syntax highlighting on a large monitor in a dimly lit studio"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnGmcf9KuPgKGlGzshRnfwuAGRYClCu0KRlAR43yYLcdivsDADwgIVbglkVG7zjESvmXbxoB1DeStcrC3wAXzb7kb9eBxZ8z0TeqI5bxtwYufh1p7LLMbjqh2eYBpP8VCXyWyfhYtjucbENhJk3OZ-UJZ1r_FHFjoGaf9nQmcGWytkAylZpiB4_Gy_-67oENGN2yEx9XYv3FkmtQWDL-SpF2tz6U_465A4zJbTZQpw2CGrUnf5apEnFjFlmGz6Q7uhc6Q5_SAiSew" />
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <span
+                class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest">Laravel
+                v11</span>
+              <h3 class="text-2xl font-headline font-bold mt-3">Synthetix CMS</h3>
+            </div>
+          </div>
+          <div
+            class="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-surface-container-low shadow-2xl transition-all duration-500 hover:-translate-y-4 md:mt-12">
+            <img
+              class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700"
+              data-alt="Abstract 3D topography map with glowing purple lines and dark metallic surface"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt65uj8UOWLg1Pw7psJi6f4Ig9ftEyYD2l8IIpvNEfdRfqQZLqj83HXqPZduwtldNFwuw3wJMJDH8Bwp5z_MNK7J0FiFlCYgsPGAx7DWUsQ9JaHRHaVLLR9bAp9hfz1_KDKzW88KZkhfCIrqGC-9trghbtv2HlU9TbS-pHrWpyG-d1ehRx2Cppyqg78H7PyU3osF3Z_Ia4a51M4QXiyF07JBy0YwA4ubh0jizfxk3evQouOHgJ9XkRV9QVHRR-v1Q4iz0Dk-VZDII" />
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <span
+                class="px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container text-[10px] font-bold uppercase tracking-widest">Three.js</span>
+              <h3 class="text-2xl font-headline font-bold mt-3">Geo-Prism API</h3>
+            </div>
+          </div>
+          <div
+            class="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-surface-container-low shadow-2xl transition-all duration-500 hover:-translate-y-4">
+            <img
+              class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700"
+              data-alt="Minimalist dashboard UI with clean typography and glowing violet data charts on dark background"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ64yDiT_-njP_vddSLUcnNzOPHTnSaEN8pnMRzFRtE3I_ohoMlZHABim5tFa6coRsYIHo0QzK8ZzIs6CLaglKcoBLN0XPvYF43yw2RplwPhIKMCKCJCF6_Q-DhdN-phzrc42Qyhwe9bUCLQFqPDv7PPJs00HucF69AOcmIYjAQ8TcGTJSlOD8fu0hc8YIvtH0i9-Y97TUWzkMTVoysea8CXloB45bs79IODL2yoRj2ys96fz27_KQzOyqq5DilA9uHAnmROAYerI" />
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <span
+                class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-widest">Tailwind
+                CSS</span>
+              <h3 class="text-2xl font-headline font-bold mt-3">Lumina Dashboard</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- Footer Component -->
+  <footer class="bg-[#070d1f] w-full py-16 px-8 mt-32">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex flex-col items-center md:items-start gap-4">
+        <div class="text-lg font-bold text-[#af88ff]">The Neon Architect</div>
+        <p class="font-inter text-sm tracking-wide text-slate-500">
+          © 2024 Kinetic Luminary. Built with Laravel &amp; Soul.
+        </p>
+      </div>
+      <div class="flex gap-8">
+        <a class="font-inter text-sm tracking-wide text-slate-500 hover:text-[#af88ff] hover:translate-y-[-2px] transition-transform"
+          href="#">Source Code</a>
+        <a class="font-inter text-sm tracking-wide text-slate-500 hover:text-[#af88ff] hover:translate-y-[-2px] transition-transform"
+          href="#">LinkedIn</a>
+        <a class="font-inter text-sm tracking-wide text-slate-500 hover:text-[#af88ff] hover:translate-y-[-2px] transition-transform"
+          href="#">GitHub</a>
+        <a class="font-inter text-sm tracking-wide text-slate-500 hover:text-[#af88ff] hover:translate-y-[-2px] transition-transform"
+          href="#">Layers</a>
+      </div>
+      <button
+        class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-bright transition-colors group"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+        <span
+          class="material-symbols-outlined text-primary group-hover:translate-y-[-2px] transition-transform">arrow_upward</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
