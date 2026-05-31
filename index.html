@@ -1,9 +1,8 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html class="dark" lang="en">
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>The Neon Architect | Portfolio</title>
   <!-- Fonts -->
@@ -98,7 +97,7 @@
   <style>
     html {
       scroll-behavior: auto;
-      overflow-x: auto;
+      /*overflow-x: auto; */
       max-width: 100vw;
       /* disable default */
     }
@@ -165,6 +164,24 @@
         width: 100vw !important;
       }
     }
+
+    .hero-title .line {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 0;
+    }
+
+    .cursor {
+      display: inline-block;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
@@ -207,7 +224,7 @@
         "></div>
       <!-- Hero Section -->
       <section class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[819px]">
-        <div class="lg:col-span-7 space-y-8">
+        <div class="lg:col-span-7 space-y-8 typewriter">
           <div class="inline-block ">>
             <span
               class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
@@ -215,15 +232,28 @@
             </span>
           </div>
           <h1
-            class="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter text-on-surface leading-[0.9] hero-title">
-            Crafting Modern Digital
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">Experiences</span>
-            with Laravel &amp; Soul
+            class="hero-title font-headline text-6xl md:text-8xl font-extrabold tracking-tighter text-on-surface leading-[0.9] flex flex-col gap-2">
+
+            <span class="line">Crafting<span class="cursor text-[#af88ff]">|</span></span>
+            <span class="line">Scalable<span class="cursor text-[#af88ff]">|</span></span>
+            <span class="line">Web Systems<span class="cursor text-[#af88ff]">|</span></span>
+
+            <span class="line">
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">
+                Experiences
+              </span>
+              <span class="cursor text-[#af88ff]">|</span>
+            </span>
+
+            <span class="line">with Laravel<span class="cursor text-[#af88ff]">|</span></span>
+
           </h1>
           <p class="font-body text-xl text-on-surface-variant max-w-xl leading-relaxed ">
-            Full-stack artisan bridging the gap between high-performance backend
-            logic and breathtaking frontend interfaces. Architecting the next
-            generation of web applications.
+            Full-stack Laravel Developer with 1.6 years of experience, specializing in building performant, maintainable
+            web applications using Laravel, Livewire, Vue, React, Tailwind, and MySQL.
+
+            I focus on turning complex business requirements into clean, scalable digital systems with strong
+            architecture and refined user experience.
           </p>
           <div class="flex flex-wrap gap-6 pt-4 hero-buttons">
             <button
@@ -307,7 +337,7 @@
       <section class="max-w-7xl mx-auto px-8 mt-32 grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-surface-container-low p-8 rounded-2xl hover:bg-surface-container-high transition-colors">
           <div class="text-4xl font-headline font-black text-on-surface tracking-tighter">
-            04+
+            1.6+
           </div>
           <div class="text-sm font-label text-on-surface-variant uppercase tracking-widest mt-2">
             Years of Depth
@@ -315,26 +345,26 @@
         </div>
         <div class="bg-surface-container-low p-8 rounded-2xl hover:bg-surface-container-high transition-colors mt-8">
           <div class="text-4xl font-headline font-black text-on-surface tracking-tighter">
-            24
+            Production
           </div>
           <div class="text-sm font-label text-on-surface-variant uppercase tracking-widest mt-2">
-            Shipped Apps
+            & Client Projects Delivered
           </div>
         </div>
         <div class="bg-surface-container-low p-8 rounded-2xl hover:bg-surface-container-high transition-colors">
           <div class="text-4xl font-headline font-black text-on-surface tracking-tighter">
-            100%
+            Maintainable
           </div>
           <div class="text-sm font-label text-on-surface-variant uppercase tracking-widest mt-2">
-            Clean Code
+            & Scalable Codebase Focus
           </div>
         </div>
         <div class="bg-surface-container-low p-8 rounded-2xl hover:bg-surface-container-high transition-colors mt-8">
           <div class="text-4xl font-headline font-black text-on-surface tracking-tighter">
-            2.4k
+            Active
           </div>
           <div class="text-sm font-label text-on-surface-variant uppercase tracking-widest mt-2">
-            Github Stars
+            Development Practice
           </div>
         </div>
       </section>
@@ -430,14 +460,13 @@
         <div class="lg:col-span-5 space-y-8">
           <div class="p-8 rounded-2xl bg-surface-container-low relative border border-outline-variant/10">
             <p class="text-xl leading-relaxed text-on-surface-variant font-body">
-              As a <span class="text-primary font-bold">Full-Stack Architect</span> specializing in the
-              Laravel ecosystem, I bridge the gap between complex backend logic and high-fidelity user
-              experiences.
+              As a <span class="text-primary font-bold">Full-Stack Architect</span>I build robust and scalable web
+              applications using modern backend and frontend technologies. My primary focus is Laravel-based
+              architectures combined with reactive frontend frameworks to deliver seamless user experiences.
             </p>
             <p class="mt-6 text-on-surface-variant leading-relaxed">
-              I build digital products that are as performant as they are beautiful. My process involves
-              treating code like architecture—structured, scalable, and built to last. I don't just ship
-              features; I craft digital ecosystems.
+              I have professional experience working at a software company and also as a freelance developer, where I
+              handled real-world client requirements, API development, and full project delivery.
             </p>
           </div>
           <div class="flex flex-wrap gap-4">

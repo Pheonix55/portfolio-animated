@@ -22,37 +22,45 @@ gsap.ticker.lagSmoothing(0);
 // HERO TITLE (SAFE SPLIT, KEEPS INNER SPANS)
 // ─────────────────────────────────────────────
 
-const titleEl = document.querySelector(".hero-title");
+const lines = document.querySelectorAll(".hero-title .line");
 
-if (titleEl) {
-  const nodes = Array.from(titleEl.childNodes);
-  titleEl.innerHTML = "";
+const tlt = gsap.timeline();
 
-  const chars = [];
+lines.forEach((line, index) => {
+  const cursor = line.querySelector(".cursor");
 
-  nodes.forEach((node) => {
-    if (node.nodeType === Node.TEXT_NODE) {
-      node.textContent.split("").forEach((c) => {
-        const span = document.createElement("span");
-        span.style.display = "inline-block";
-        span.style.whiteSpace = "pre";
-        span.textContent = c === " " ? "\u00A0" : c;
-        titleEl.appendChild(span);
-        chars.push(span);
-      });
-    } else {
-      titleEl.appendChild(node);
-    }
+  // Hide all cursors except first
+  if (cursor) gsap.set(cursor, { opacity: 0 });
+
+  tlt.to(line, {
+    width: "100%",
+    duration: 0.8,
+    ease: "steps(25)",
   });
 
-  gsap.from(chars, {
-    opacity: 0,
-    y: 40,
-    stagger: 0.018,
-    duration: 1.2,
-    ease: "power3.out",
-  });
-}
+  // show cursor at end of typing
+  tlt.to(
+    cursor,
+    {
+      opacity: 1,
+      duration: 0.1,
+    },
+    "<",
+  );
+
+  // hide cursor before next line starts (except last)
+  if (index !== lines.length - 1) {
+    tlt.to(
+      cursor,
+      {
+        opacity: 0,
+        duration: 0.1,
+      },
+      "+=0.2",
+    );
+  }
+});
+
 
 // ─────────────────────────────────────────────
 // NAV ANIMATION (ONCE)
@@ -178,7 +186,9 @@ window.addEventListener("load", () => {
 
   // HEADINGS
   document
-    .querySelectorAll(".tech_stack_section h1, .projects_section h1, .contact_me_section h1")
+    .querySelectorAll(
+      ".tech_stack_section h1, .projects_section h1, .contact_me_section h1",
+    )
     .forEach((el) => {
       gsap.from(el, {
         opacity: 0,
